@@ -5,7 +5,7 @@
             <p class="text-muted mb-0">يوجد {{ $data->total() }} الجهات</p>
         </div>
         <div class="mb-0 position-relative mb-3">
-            <a href="{{ route('dashboard.prosecutions.create') }}" class="btn btn-soft-success mt-2 me-2"><i
+            <a href="{{ route('dashboard.governorates.create') }}" class="btn btn-soft-success mt-2 me-2"><i
                     class="fa-solid fa-square-plus"></i>
                 إنشاء</a>
         </div>
@@ -42,13 +42,13 @@
                 @forelse ($data as $info)
                     <tr class="shop-list">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $info->name }}</td>
+                        <td title="{{ $info->name }}">{{ Str::limit($info->name, 10) }}</td>
                         <td>{{ $info->created_at->format('Y-m-d') }}</td>
                         <td>
                             <li class="list-inline-item">
                                 @include('dashboard.partials.actions', [
-                                    'name' => 'prosecutions',
-                                    'name_id' => $info->slug,
+                                    'name' => 'governorates',
+                                    'name_id' => $info->id,
                                 ])
                             </li>
                         </td>

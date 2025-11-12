@@ -31,7 +31,6 @@ class Admin extends Authenticatable
         'status',
     ];
 
-    //################################## Start Slug
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -39,11 +38,15 @@ class Admin extends Authenticatable
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'slug';
     }
-    //################################## End Slug
 
     /**
      * The attributes that should be hidden for serialization.

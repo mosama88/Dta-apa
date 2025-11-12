@@ -1,5 +1,6 @@
 @extends('dashboard.layouts.master')
 @section('title','لوحة التحكم')
+@section('home_active','لوحة التحكم')
 @section('content')
     <div class="row">
         <div class="col-xl-4">

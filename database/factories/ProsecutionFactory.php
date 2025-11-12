@@ -18,6 +18,7 @@ class ProsecutionFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'slug' => fake()->slug(),
         ];
     }
 }
