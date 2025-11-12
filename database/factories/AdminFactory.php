@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
+use App\Enums\UserStatusEnum;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,12 @@ class AdminFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'username' => fake()->userName(),
+            'password' => static::$password ??= Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'status' => UserStatusEnum::Active,
+
         ];
     }
 }
