@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Prosecution;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProsecutionSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class ProsecutionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Prosecution::factory(50)->create();
     }
 }

@@ -7,3 +7,6 @@
     <!-- Main Js -->
     <script src="{{ asset('dashboard') }}/assets/js/plugins.init.js"></script>
     <script src="{{ asset('dashboard') }}/assets/js/app.js"></script>
+
+
+    @stack('js')

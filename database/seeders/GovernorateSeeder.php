@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Governorate;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class GovernorateSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class GovernorateSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Governorate::factory(50)->create();
     }
 }

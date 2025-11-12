@@ -20,3 +20,6 @@
     <link href="{{asset('dashboard')}}/assets/libs/@iconscout/unicons/css/line.css" type="text/css" rel="stylesheet" />
     <!-- Style Css-->
     <link href="{{asset('dashboard')}}/assets/css/style-rtl.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+
+
+    @stack('css')

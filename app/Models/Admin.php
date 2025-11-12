@@ -7,23 +7,43 @@ use App\Enums\UserStatusEnum;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Admin extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasSlug;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
+
+    protected $table = 'admins';
+
     protected $fillable = [
         'name',
+        'slug',
         'username',
         'password',
         'status',
     ];
+
+    //################################## Start Slug
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    //################################## End Slug
 
     /**
      * The attributes that should be hidden for serialization.
