@@ -25,19 +25,21 @@
         <!-- Start Page Content -->
         <main class="page-content bg-light">
             <!-- Top Header -->
-     @include('dashboard.layouts.navbar')
+            @include('dashboard.layouts.navbar')
             <!-- Top Header -->
 
             <div class="container-fluid">
                 <div class="layout-specing">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h6 class="text-muted mb-1">Welcome back, Cristina!</h6>
-                            <h5 class="mb-0">Dashboard</h5>
+                            <h6 class="text-muted mb-1">{{ $titlePage }}</h6>
                         </div>
+                        <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
+                            <x-breadcrumb :breadcrumbs="generate_breadcrumbs()" />
+                        </ul>
                     </div>
 
-        @yield('content')
+                    @yield('content')
                 </div>
             </div><!--end container-->
 
@@ -52,7 +54,7 @@
 
     <!-- Offcanvas Start -->
 
-    
+
     <!-- Offcanvas End -->
 
     @include('dashboard.layouts.scripts')

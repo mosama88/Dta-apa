@@ -22,9 +22,8 @@
     </h6>
 
     <div class="d-flex align-items-center mb-3">
-        {{-- <x-import-excel model=Prosecution
-            columns="Name ,Description ,Date ,Start Time ,Date, Time , Percentage and is Active" />
-        <x-export-excel model=Prosecution /> --}}
+        <x-import-excel model=Prosecution columns="أسم الجهه" />
+        <x-export-excel model=Prosecution />
     </div>
 
     <div class="table-responsive bg-white shadow rounded">

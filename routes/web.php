@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Dashboard\ExportExcelController;
 use App\Http\Controllers\Dashboard\GovernorateController;
+use App\Http\Controllers\Dashboard\ImportExcelController;
 use App\Http\Controllers\Dashboard\ProsecutionController;
 use App\Http\Controllers\Dashboard\InternetLineController;
 use App\Http\Controllers\Dashboard\RouterDeviceController;
@@ -22,6 +24,9 @@ Route::middleware('auth:admin')->name('dashboard.')->group(function () {
     Route::resource('/router_devices', RouterDeviceController::class);
     Route::resource('/switch_devices', SwitchDeviceController::class);
 
+
+    Route::post('/import/excel', ImportExcelController::class)->name('import.excel');
+    Route::get('/export/excel', ExportExcelController::class)->name('export.excel');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
