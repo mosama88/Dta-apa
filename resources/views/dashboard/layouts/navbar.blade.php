@@ -28,7 +28,7 @@
                </div>
 
                <ul class="list-unstyled mb-0">
-         
+
                    <li class="list-inline-item mb-0 ms-1">
                        <div class="dropdown dropdown-primary">
                            <button type="button" class="btn btn-soft-light dropdown-toggle p-0"
@@ -41,26 +41,27 @@
                                    <img src="{{ asset('dashboard') }}/assets/images/client/05.jpg"
                                        class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                    <div class="flex-1 ms-2">
-                                       <span class="d-block">Cristina Julia</span>
-                                       <small class="text-muted">UI / UX Designer</small>
+                                       <span class="d-block">{{auth()->user()->name}}</span>
+                                       <small class="text-muted">{{auth()->user()->username}}</small>
                                    </div>
                                </a>
-                               <a class="dropdown-item text-dark" href="index.html"><span
+                               <a class="dropdown-item text-dark" href="{{route('dashboard.index')}}"><span
                                        class="mb-0 d-inline-block me-1"><i class="ti ti-home"></i></span>
-                                   Dashboard</a>
-                               <a class="dropdown-item text-dark" href="profile.html"><span
+                                   لوحة التحكم</a>
+                               <a class="dropdown-item text-dark" href="{{route('dashboard.profile.edit')}}"><span
                                        class="mb-0 d-inline-block me-1"><i class="ti ti-settings"></i></span>
-                                   Profile</a>
-                               <a class="dropdown-item text-dark" href="email.html"><span
-                                       class="mb-0 d-inline-block me-1"><i class="ti ti-mail"></i></span>
-                                   Email</a>
-                               <div class="dropdown-divider border-top"></div>
-                               <a class="dropdown-item text-dark" href="lock-screen.html"><span
-                                       class="mb-0 d-inline-block me-1"><i class="ti ti-lock"></i></span>
-                                   Lockscreen</a>
-                               <a class="dropdown-item text-dark" href="login.html"><span
+                                   صفحتى</a>
+                               {{-- <a class="dropdown-item text-dark" href="login.html"><span
                                        class="mb-0 d-inline-block me-1"><i class="ti ti-logout"></i></span>
-                                   Logout</a>
+                                   Logout</a> --}}
+
+                               <form action="{{ route('dashboard.logout') }}" method="POST">
+                                   @csrf
+                                   <button class="dropdown-item text-dark"><span class="mb-0 d-inline-block me-1"><i
+                                               class="ti ti-logout"></i></span>
+                                       تسجيل الخروج
+                                   </button>
+                               </form>
                            </div>
                        </div>
                    </li>

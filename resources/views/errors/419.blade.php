@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Landrick - Bootstrap 5 Multipurpose App, Saas & Software Landing & Admin Dashboard Template</title>
+    <title>النيابة الادارية - 419</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
     <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
@@ -47,19 +47,21 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-12 text-center">
                     <img src="{{ asset('dashboard') }}/assets/images/404.svg" style="max-width: 500px;" alt="">
-                    <div class="text-uppercase mt-4 display-5 fw-semibold">Page Not Found</div>
+                    <div class="text-uppercase mt-4 display-5 fw-semibold">لم يتم العثور على الصفحة</div>
                     <div class="text-capitalize text-dark mb-4 error-page"></div>
-                    <p class="text-muted para-desc mx-auto">Our design projects are fresh and simple and will benefit
-                        your business greatly. Learn more about our work!</p>
-                </div><!--end col-->
-            </div><!--end row-->
+                    <p class="text-muted para-desc mx-auto">
+                        عذرًا! الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها. من فضلك ارجع للصفحة الرئيسية أو جرّب
+                        البحث مرة أخرى.
+                    </p>
 
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <a href="index.html" class="btn btn-primary mt-4">Go To Home</a>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
+                </div><!--end row-->
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="{{ url('/') }}" class="btn btn-primary mt-4">الصفحة الرئيسية</a>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
     </section><!--end section-->
     <!-- ERROR PAGE -->
 
