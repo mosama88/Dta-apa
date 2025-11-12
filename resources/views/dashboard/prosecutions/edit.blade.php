@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.master')
+@extends('dashboard.layouts.master', ['titlePage' => 'الجهات'])
 @section('author_active', 'active')
 @section('title', 'الجهات')
 @section('content')

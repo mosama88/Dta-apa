@@ -1,8 +1,8 @@
 <div class="card-body">
     <div class="d-flex align-items-center justify-content-between">
         <div>
-            <h5 class="mb-0">الجهات</h5>
-            <p class="text-muted mb-0">يوجد {{ $data->total() }} الجهات</p>
+            <h5 class="mb-0">المحافظات</h5>
+            <p class="text-muted mb-0">يوجد {{ $data->total() }} المحافظات</p>
         </div>
         <div class="mb-0 position-relative mb-3">
             <a href="{{ route('dashboard.governorates.create') }}" class="btn btn-soft-success mt-2 me-2"><i
@@ -22,9 +22,8 @@
     </h6>
 
     <div class="d-flex align-items-center mb-3">
-        {{-- <x-import-excel model=Prosecution
-            columns="Name ,Description ,Date ,Start Time ,Date, Time , Percentage and is Active" />
-        <x-export-excel model=Prosecution /> --}}
+        <x-import-excel model=Governorate columns="أسم المحافظة" />
+        <x-export-excel model=Governorate />
     </div>
 
     <div class="table-responsive bg-white shadow rounded">
@@ -32,7 +31,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>أسم الجهه</th>
+                    <th>أسم المحافظة</th>
                     <th>إنشاء بواسطة</th>
                     <th>الأجراءات</th>
                 </tr>
@@ -42,13 +41,13 @@
                 @forelse ($data as $info)
                     <tr class="shop-list">
                         <td>{{ $loop->iteration }}</td>
-                        <td title="{{ $info->name }}">{{ Str::limit($info->name, 10) }}</td>
+                        <td>{{ $info->name }}</td>
                         <td>{{ $info->created_at->format('Y-m-d') }}</td>
                         <td>
                             <li class="list-inline-item">
                                 @include('dashboard.partials.actions', [
                                     'name' => 'governorates',
-                                    'name_id' => $info->id,
+                                    'name_id' => $info->slug,
                                 ])
                             </li>
                         </td>

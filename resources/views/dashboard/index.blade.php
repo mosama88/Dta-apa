@@ -1,6 +1,6 @@
-@extends('dashboard.layouts.master')
-@section('title','لوحة التحكم')
-@section('home_active','لوحة التحكم')
+@extends('dashboard.layouts.master', ['titlePage' => 'لوحة التحكم'])
+@section('title', 'لوحة التحكم')
+@section('home_active', 'لوحة التحكم')
 @section('content')
     <div class="row">
         <div class="col-xl-4">

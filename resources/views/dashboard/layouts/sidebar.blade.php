@@ -18,8 +18,13 @@
                         لوحة التحكم</a>
                 </li>
                 <li class="@yield('prosecutions_active')">
-                    <a href="{{ route('dashboard.prosecutions.index') }}"><i class="fa-solid fa-tags mx-2"></i>
+                    <a href="{{ route('dashboard.prosecutions.index') }}"><i
+                            class="fa-solid fa-arrow-right-to-city mx-2"></i>
                         الجهات</a>
+                </li>
+                <li class="@yield('governorates_active')">
+                    <a href="{{ route('dashboard.governorates.index') }}"><i class="fa-solid fa-building-flag mx-2"></i>
+                        المحافظات</a>
                 </li>
             </ul>
             <!-- sidebar-menu  -->
