@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\InternetLine;
+use App\Models\Prosecution;
+use App\Models\Governorate;
 use App\Http\Requests\Dashboard\InternetLineRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +25,9 @@ class InternetLineController extends Controller
      */
     public function create()
     {
-        return view('dashboard.internet_lines.create');
+        $other['prosecutions'] = Prosecution::all();
+        $other['governorates'] = Governorate::all();
+        return view('dashboard.internet_lines.create', compact('other'));
     }
 
     /**

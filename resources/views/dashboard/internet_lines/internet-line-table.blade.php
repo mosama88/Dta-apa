@@ -48,7 +48,7 @@
                         <td>{{ $info->prosecution->name }}</td>
                         <td>{{ $info->code_line }}</td>
                         <td>{{ $info->order_number }}</td>
-                        <td>{{ $info->type_line }}</td>
+                        <td>{{ $info->type_line->label() }}</td>
                         <td>{{ $info->governorate->name }}</td>
                         <td>{{ $info->created_at->format('Y-m-d') }}</td>
                         <td>

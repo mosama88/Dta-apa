@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Enums\TypeLineEnum;
 
 class InternetLineRequest extends FormRequest
 {
@@ -29,7 +31,10 @@ class InternetLineRequest extends FormRequest
             'code_line' => 'required|string|max:20|unique:internet_lines,code_line' . $InternetLineId,
             'order_number' => 'required|string|max:20|unique:internet_lines,order_number' . $InternetLineId,
             'internet_speed' => 'required|string|max:20',
-            'type_line' => 'required|string|max:200',
+            'type_line' => [
+                'required',
+                Rule::in(array_column(TypeLineEnum::cases(), 'value')),
+            ],
             'ip_address' => 'nullable|ip|unique:internet_lines,ip_address' . $InternetLineId,
             'mac_address' => 'nullable|mac_address|unique:internet_lines,mac_address' . $InternetLineId,
             'governorate_id' => 'required|exists:governorates,id',

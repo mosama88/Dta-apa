@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use App\Enums\TypeLineEnum;
 
 class InternetLine extends Model
 {
@@ -56,9 +57,17 @@ class InternetLine extends Model
     {
         return $this->BelongsTo(Governorate::class, 'governorate_id');
     }
-    
+
     public function prosecution()
     {
         return $this->BelongsTo(Prosecution::class, 'prosecution_id');
+    }
+
+
+    protected function casts(): array
+    {
+        return [
+            'type_line' => TypeLineEnum::class,
+        ];
     }
 }

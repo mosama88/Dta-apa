@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('code_line', 20)->unique();
             $table->string('order_number', 20)->unique();
             $table->string('internet_speed', 20);
-            $table->string('type_line', 200);
+            $table->tinyInteger('type_line');
             $table->ipAddress('ip_address')->nullable()->unique();
             $table->macAddress('mac_address')->nullable()->unique();
             $table->foreignIdFor(Governorate::class)->constrained()->cascadeOnDelete();
