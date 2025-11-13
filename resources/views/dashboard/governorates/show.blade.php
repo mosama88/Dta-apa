@@ -15,6 +15,37 @@
                                     class="form-control" placeholder="أسم المحافظة :">
                             </div>
                         </div><!--end col-->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">أنشاء بواسطة</label>
+                                    <input readonly name="created_by" type="text"
+                                        value="{{ old('created_by', $governorate->createdBy->name . ' - ' . $governorate->created_at->format('d/m/Y H:i')) }}"
+                                        class="form-control text-center fw-bold"
+                                        style="background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; color:#334155;"
+                                        placeholder="أنشئ بواسطة :">
+
+                                </div>
+                            </div><!--end col-->
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">تحديث بواسطة</label>
+                                    <input readonly name="updated_by" type="text"
+                                        value="{{ old(
+                                            'updated_by',
+                                            $governorate->updated_by
+                                                ? $governorate->updatedBy->name . ' - ' . $governorate->updated_at->format('d/m/Y H:i')
+                                                : 'لا يوجد تحديث',
+                                        ) }}"
+                                        class="form-control text-center fw-bold"
+                                        style="background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; color:#334155;"
+                                        placeholder="تحديث بواسطة :">
+                                </div>
+                            </div><!--end col-->
+                        </div>
+
                     </div><!--end row-->
 
                 </div>

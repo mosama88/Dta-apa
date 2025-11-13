@@ -25,6 +25,6 @@ class ImportExcelController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'error happended while importing file' . $th->getMessage());
         }
-        return back()->with('success', 'The file was imported successfully.');
+        return back()->with('success', 'تم استيراد الملف بنجاح.');
     }
 }

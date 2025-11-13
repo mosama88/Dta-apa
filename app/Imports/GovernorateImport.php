@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Models\Prosecution;
+use App\Models\Governorate;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class ProsecutionImport implements ToModel
+class GovernorateImport implements ToModel
 {
     /**
      * @param array $row
@@ -16,7 +16,7 @@ class ProsecutionImport implements ToModel
     public function model(array $row)
     {
         $userId = Auth::user()->id;
-        return new Prosecution([
+        return new Governorate([
             'name' => $row[0],
             'created_by' => $userId
         ]);
