@@ -61,7 +61,9 @@ class InternetLineController extends Controller
      */
     public function edit(InternetLine $internetLine)
     {
-        return view('dashboard.internet_lines.edit', compact('internetLine'));
+        $other['prosecutions'] = Prosecution::all();
+        $other['governorates'] = Governorate::all();
+        return view('dashboard.internet_lines.edit', compact('other', 'internetLine'));
     }
 
     /**
