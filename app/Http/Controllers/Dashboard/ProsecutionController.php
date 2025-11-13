@@ -6,6 +6,7 @@ use App\Models\Prosecution;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\ProsecutionRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProsecutionController extends Controller
 {
@@ -31,8 +32,12 @@ class ProsecutionController extends Controller
     public function store(ProsecutionRequest $request)
     {
         try {
+            $userId = Auth::user()->id;
             $validateData = $request->validated();
-            Prosecution::create($validateData);
+            $dataInsert = array_merge($validateData, [
+                'created_by' => $userId
+            ]);
+            Prosecution::create($dataInsert);
             return redirect()->route('dashboard.prosecutions.index')->with('success', 'تم أضافة الجهه بنجاح');
         } catch (\Exception $ex) {
             return redirect()->back()->withErrors(['error' => 'عفوآ لقد حدث خطأ'] . $ex->getMessage())->withInput();
@@ -61,8 +66,12 @@ class ProsecutionController extends Controller
     public function update(ProsecutionRequest $request, Prosecution $prosecution)
     {
         try {
+            $userId = Auth::user()->id;
             $validateData = $request->validated();
-            $prosecution->update($validateData);
+            $dataUpdated = array_merge($validateData, [
+                'updated_by' => $userId
+            ]);
+            $prosecution->update($dataUpdated);
             return redirect()->route('dashboard.prosecutions.index')->with('success', 'تم تعديل الجهه بنجاح');
         } catch (\Exception $ex) {
             return redirect()->back()->withErrors(['error' => 'عفوآ لقد حدث خطأ'] . $ex->getMessage())->withInput();

@@ -6,6 +6,7 @@ use App\Models\Governorate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\GovernorateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class GovernorateController extends Controller
 {
@@ -31,8 +32,12 @@ class GovernorateController extends Controller
     public function store(GovernorateRequest $request)
     {
         try {
+            $userId = Auth::user()->id;
             $validateData = $request->validated();
-            Governorate::create($validateData);
+            $dataInsert = array_merge($validateData, [
+                'created_by' => $userId
+            ]);
+            Governorate::create($dataInsert);
             return redirect()->route('dashboard.governorates.index')->with('success', 'تم أضافة المحافظة بنجاح');
         } catch (\Exception $ex) {
             return redirect()->back()->withErrors(['error' => 'عفوآ لقد حدث خطأ'] . $ex->getMessage())->withInput();
@@ -61,8 +66,12 @@ class GovernorateController extends Controller
     public function update(GovernorateRequest $request, Governorate $governorate)
     {
         try {
+            $userId = Auth::user()->id;
             $validateData = $request->validated();
-            $governorate->update($validateData);
+            $dataUpdated = array_merge($validateData, [
+                'updated_by' => $userId
+            ]);
+            $governorate->update($dataUpdated);
             return redirect()->route('dashboard.governorates.index')->with('success', 'تم تعديل المحافظة بنجاح');
         } catch (\Exception $ex) {
             return redirect()->back()->withErrors(['error' => 'عفوآ لقد حدث خطأ'] . $ex->getMessage())->withInput();

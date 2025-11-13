@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('internet_lines', function (Blueprint $table) {
             $table->id();
+                        $table->foreignId('created_by')->references('id')->on('admins')->onUpdate('cascade');
+            $table->foreignId('updated_by')->nullable()->references('id')->on('admins')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class Governorate extends Model
 
     protected $fillable = [
         'name',
+        'created_by',
+        'updated_by',
         'slug',
     ];
 
@@ -33,4 +35,14 @@ class Governorate extends Model
         return 'slug';
     }
     //################################## End Slug
+
+    public function createdBy()
+    {
+        return $this->BelongsTo(Admin::class, 'created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->BelongsTo(Admin::class, 'updated_by');
+    }
 }

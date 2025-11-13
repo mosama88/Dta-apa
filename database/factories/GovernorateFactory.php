@@ -19,6 +19,7 @@ class GovernorateFactory extends Factory
         return [
             'name' => fake()->name(),
             'slug' => fake()->slug(),
+            'created_by' => fake()->numberBetween(1, 20),
         ];
     }
 }

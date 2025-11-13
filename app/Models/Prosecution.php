@@ -16,6 +16,8 @@ class Prosecution extends Model
     protected $fillable = [
         'name',
         'slug',
+        'created_by',
+        'updated_by',
     ];
 
 
@@ -33,4 +35,14 @@ class Prosecution extends Model
         return 'slug';
     }
     //################################## End Slug
+
+    public function createdBy()
+    {
+        return $this->BelongsTo(Admin::class, 'created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->BelongsTo(Admin::class, 'updated_by');
+    }
 }
