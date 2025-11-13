@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             ProsecutionSeeder::class,
             GovernorateSeeder::class,
+            InternetLineSeeder::class,
         ]);
     }
 }

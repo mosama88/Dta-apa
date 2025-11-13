@@ -26,6 +26,12 @@
                     <a href="{{ route('dashboard.governorates.index') }}"><i class="fa-solid fa-building-flag mx-2"></i>
                         المحافظات</a>
                 </li>
+
+                <li class="@yield('internet_lines_active')">
+                    <a href="{{ route('dashboard.internet_lines.index') }}"><i
+                            class="fa-solid fa-house-signal mx-2"></i>
+                        خطوط الانترنت</a>
+                </li>
             </ul>
             <!-- sidebar-menu  -->
         </div>

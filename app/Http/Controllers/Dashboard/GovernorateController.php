@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Governorate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Governorate;
 use App\Http\Requests\Dashboard\GovernorateRequest;
 use Illuminate\Support\Facades\Auth;
 
