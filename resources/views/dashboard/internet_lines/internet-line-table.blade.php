@@ -53,7 +53,7 @@
                         <td>{{ $info->created_at->format('Y-m-d') }}</td>
                         <td>
                             <li class="list-inline-item">
-                                @include('dashboard.partials.actions', [
+                                @include('dashboard.partials.dropdown-actions', [
                                     'name' => 'internet_lines',
                                     'name_id' => $info->slug,
                                 ])

@@ -1,22 +1,30 @@
-        <a title="Edit" href="{{ route('dashboard.' . $name . '.edit', $name_id) }}"
-            class="btn btn-icon btn-outline-info mt-2">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </a>
-        <a title="Show" href="{{ route('dashboard.' . $name . '.show', $name_id) }}"
-            class="btn btn-icon btn-outline-secondary mt-2">
-            <i class="fa-solid fa-eye"></i>
-        </a>
-
+        <div class="btn-group dropdown-info me-2 mt-2">
+            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                الأجراءات
+            </button>
+            <div class="dropdown-menu">
+                <a href="{{ route('dashboard.' . $name . '.edit', $name_id) }}" class="dropdown-item text-info">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    تعديل
+                </a>
+                <a href="{{ route('dashboard.' . $name . '.show', $name_id) }}" class="dropdown-item text-secendary">
+                    <i class="fa-solid fa-eye"></i>
+                    عرض
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="javascript:void(0)" id="delete_one" data-id="{{ $name_id }}"
+                    class="dropdown-item delete-btn text-danger">
+                    <i class="fa-solid fa-trash-can"></i>
+                    حذف
+                </a>
+            </div>
+        </div>
         <form id="delete-form-{{ $name_id }}" action="{{ route('dashboard.' . $name . '.destroy', $name_id) }}"
             method="POST" style="display: none;">
             @csrf
             @method('DELETE')
         </form>
-
-
-        <a href="javascript:void(0)" id="delete_one" data-id="{{ $name_id }}"
-            class="btn btn-icon btn-outline-danger mt-2 delete-btn"><i class="fa-solid fa-trash-can"></i></a>
-
         @push('js')
             <script src="{{ asset('dashboard') }}/assets/js/sweetalert2@11.js"></script>
 
