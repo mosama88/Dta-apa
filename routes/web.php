@@ -16,7 +16,13 @@ Route::get('/', function () {
     return view('dashboard.index');
 })->middleware(['auth:admin', 'verified'])->name('dashboard.index');
 
-Route::middleware('auth:admin')->name('dashboard.')->group(function () {
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware(['auth:admin', 'verified'])->name('dashboard.index');
+
+Route::middleware('auth:admin')->prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::resource('/prosecutions', ProsecutionController::class);
     Route::resource('/governorates', GovernorateController::class);
